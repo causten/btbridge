@@ -30,7 +30,8 @@
 #include <time.h>
 #include <assert.h>
 
-#include <linux/bt-host.h>
+/*#include <linux/bt-host.h>*/
+#include "bt-host.h"
 
 #include <systemd/sd-bus.h>
 
@@ -57,9 +58,9 @@
                          } while(0)
 
 struct ipmi_msg {
+	uint8_t seq;
 	uint8_t netfn;
 	uint8_t lun;
-	uint8_t seq;
 	uint8_t cmd;
 	uint8_t cc; /* Only used on responses */
 	uint8_t *data;
